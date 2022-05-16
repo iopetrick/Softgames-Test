@@ -9,28 +9,112 @@ import XCTest
 @testable import Softgames_Test
 
 class Softgames_TestTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func test_ViewModel_with_No_first_last_data() {
+        let delegate = TestUserFormViewModelDelegate()
+        let sut = getNewViewModel(delegate: delegate)
+        let data: [String: String?]? = nil
+        sut.getDataFrom(dictionary: data)
+        XCTAssertTrue(delegate.isErrorCalled)
+        XCTAssert(delegate.fullName.isEmpty)
+        XCTAssert(delegate.age.isEmpty)
+        XCTAssertEqual(delegate.errorMessage, "First and last name is mendatory. Please input missing values.")
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func test_ViewModel_with_empty_string_data() {
+        let delegate = TestUserFormViewModelDelegate()
+        let sut = getNewViewModel(delegate: delegate)
+        let data: [String: String?]? = [
+            "first_name": "",
+            "last_name": "",
+        ]
+        sut.getDataFrom(dictionary: data)
+        XCTAssertTrue(delegate.isErrorCalled)
+        XCTAssert(delegate.fullName.isEmpty)
+        XCTAssert(delegate.age.isEmpty)
+        XCTAssertEqual(delegate.errorMessage, "First and last name is mendatory. Please input missing values.")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func test_ViewModel_with_wrong_object() {
+        let delegate = TestUserFormViewModelDelegate()
+        let sut = getNewViewModel(delegate: delegate)
+        let data: [String: String?]? = [
+            "name_first": "Abc",
+            "name_last": "Xyz",
+        ]
+        sut.getDataFrom(dictionary: data)
+        XCTAssertTrue(delegate.isErrorCalled)
+        XCTAssert(delegate.fullName.isEmpty)
+        XCTAssert(delegate.age.isEmpty)
+        XCTAssertEqual(delegate.errorMessage, "First and last name is mendatory. Please input missing values.")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_ViewModel_with_only_first_name() {
+        let delegate = TestUserFormViewModelDelegate()
+        let sut = getNewViewModel(delegate: delegate)
+        let data: [String: String?]? = [
+            "first_name": "Abc",
+        ]
+        sut.getDataFrom(dictionary: data)
+        XCTAssertTrue(delegate.isErrorCalled)
+        XCTAssert(delegate.fullName.isEmpty)
+        XCTAssert(delegate.age.isEmpty)
+        XCTAssertEqual(delegate.errorMessage, "First and last name is mendatory. Please input missing values.")
     }
+    
+    func test_ViewModel_with_only_last_name() {
+        let delegate = TestUserFormViewModelDelegate()
+        let sut = getNewViewModel(delegate: delegate)
+        let data: [String: String?]? = [
+            "last_name": "Abc",
+        ]
+        sut.getDataFrom(dictionary: data)
+        XCTAssertTrue(delegate.isErrorCalled)
+        XCTAssert(delegate.fullName.isEmpty)
+        XCTAssert(delegate.age.isEmpty)
+        XCTAssertEqual(delegate.errorMessage, "First and last name is mendatory. Please input missing values.")
+    }
+    
+    func test_ViewModel_with_valid_data() {
+        let delegate = TestUserFormViewModelDelegate()
+        let sut = getNewViewModel(delegate: delegate)
+        let data: [String: String?]? = [
+            "first_name": "Abc",
+            "last_name": "Xyz",
+        ]
+        sut.getDataFrom(dictionary: data)
+        XCTAssertFalse(delegate.isErrorCalled)
+        XCTAssertEqual("Abc Xyz", delegate.fullName)
+        XCTAssert(delegate.age.isEmpty)
+        XCTAssertEqual(delegate.errorMessage, "")
+    }
+}
 
+extension Softgames_TestTests {
+    func getNewViewModel(delegate: UserFormViewModelDelegate) -> UserFormViewModel {
+        let viewModel = UserFormViewModel(delegate: delegate)
+        return viewModel
+    }
+}
+
+
+class TestUserFormViewModelDelegate: UserFormViewModelDelegate {
+    
+    var isErrorCalled: Bool = false
+    var fullName: String = ""
+    var age: String = ""
+    var errorMessage: String = ""
+    
+    func showError(message: String) {
+        isErrorCalled = true
+        errorMessage = message
+    }
+    
+    func sendFullName(fullName: String) {
+        self.fullName = fullName
+    }
+    
+    func sendUserAge(age: String) {
+        self.age = age
+    }
 }

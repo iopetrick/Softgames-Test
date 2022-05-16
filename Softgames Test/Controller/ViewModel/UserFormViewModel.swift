@@ -29,7 +29,10 @@ class UserFormViewModel {
     }
     
     func getDataFrom(dictionary: [String: String?]?) {
-        guard let data = dictionary else { return }
+        guard let data = dictionary else {
+            self.delegate?.showError(message: errorMessageFullname)
+            return
+        }
         let firstName = data["first_name"] as? String ?? ""
         let lastName = data["last_name"] as? String ?? ""
         if !firstName.isEmpty && !lastName.isEmpty {
