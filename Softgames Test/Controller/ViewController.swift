@@ -16,6 +16,8 @@ final class ViewController: UIViewController {
         let contentController = WKUserContentController();
         contentController.add(self,name: self.viewModel.webkitInterfaceName)
         contentController.add(self,name: self.viewModel.webkitInterfacedob)
+        contentController.add(self,name: self.viewModel.webkitInterfaceNotification)
+        
         
         let config = WKWebViewConfiguration()
         
@@ -94,6 +96,8 @@ extension ViewController: WKNavigationDelegate, WKScriptMessageHandler {
             if let dateString = message.body as? String {
                 self.viewModel.showUserAge(date: dateString)
             }
+        } else if (message.name == self.viewModel.webkitInterfaceNotification) {
+            self.viewModel.triggerLocalNotification()
         }
     }
 }

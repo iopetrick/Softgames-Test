@@ -16,4 +16,25 @@ extension UIViewController {
         self.present(alertVC, animated: true)
     }
     
+    func showAppSettingAlert() {
+        let alertController = UIAlertController.init(title: "Warning", message: "Please allow local notification access.", preferredStyle: .alert)
+        let cancel = UIAlertAction.init(title: "Cancel", style: .destructive, handler: nil)
+        let setting = UIAlertAction.init(title: "Setting", style: .default) { (alert) in
+            
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                    print("Settings opened: \(success)") // Prints true
+                })
+            }
+            
+        }
+        
+        alertController.addAction(cancel)
+        alertController.addAction(setting)
+        self.present(alertController, animated: true)
+    }
 }

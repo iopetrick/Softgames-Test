@@ -20,6 +20,7 @@
 		2A74A2812832523300874401 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74A2802832523300874401 /* UIViewController+Extension.swift */; };
 		2A74A285283254E100874401 /* UserFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74A284283254E100874401 /* UserFormViewModel.swift */; };
 		2A74A2872832600900874401 /* ClickMeEventRegister.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A74A2862832600900874401 /* ClickMeEventRegister.js */; };
+		2A74A2892832652F00874401 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74A2882832652F00874401 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2A74A2802832523300874401 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		2A74A284283254E100874401 /* UserFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormViewModel.swift; sourceTree = "<group>"; };
 		2A74A2862832600900874401 /* ClickMeEventRegister.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ClickMeEventRegister.js; sourceTree = "<group>"; };
+		2A74A2882832652F00874401 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2A74A284283254E100874401 /* UserFormViewModel.swift */,
+				2A74A2882832652F00874401 /* NotificationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A74A2892832652F00874401 /* NotificationManager.swift in Sources */,
 				2A74A2812832523300874401 /* UIViewController+Extension.swift in Sources */,
 				2A74A25228323BD200874401 /* ViewController.swift in Sources */,
 				2A74A24E28323BD200874401 /* AppDelegate.swift in Sources */,

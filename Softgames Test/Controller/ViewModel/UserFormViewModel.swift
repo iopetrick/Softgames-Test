@@ -17,6 +17,7 @@ class UserFormViewModel {
     
     let webkitInterfaceName = "softgame_web_interface_fullname"
     let webkitInterfacedob = "softgame_web_interface_dob"
+    let webkitInterfaceNotification = "softgame_web_interface_notification"
     
     private let errorMessageFullname: String = "First and last name is mendatory. Please input missing values."
     private let errorMessageDob: String = "Invalid Date of birth. Please add valid date."
@@ -63,4 +64,8 @@ class UserFormViewModel {
         }
     }
     
+    func triggerLocalNotification() {
+        debugPrint(#function)
+        NotificationManager.shared.scheduleNotification()
+    }
 }
