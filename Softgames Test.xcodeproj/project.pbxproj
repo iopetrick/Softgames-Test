@@ -16,6 +16,10 @@
 		2A74A26528323BD200874401 /* Softgames_TestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74A26428323BD200874401 /* Softgames_TestTests.swift */; };
 		2A74A26F28323BD200874401 /* Softgames_TestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74A26E28323BD200874401 /* Softgames_TestUITests.swift */; };
 		2A74A27128323BD200874401 /* Softgames_TestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74A27028323BD200874401 /* Softgames_TestUITestsLaunchTests.swift */; };
+		2A74A27F283240EE00874401 /* softgame_doc.html in Resources */ = {isa = PBXBuildFile; fileRef = 2A74A27E283240EE00874401 /* softgame_doc.html */; };
+		2A74A2812832523300874401 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74A2802832523300874401 /* UIViewController+Extension.swift */; };
+		2A74A285283254E100874401 /* UserFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A74A284283254E100874401 /* UserFormViewModel.swift */; };
+		2A74A2872832600900874401 /* ClickMeEventRegister.js in Resources */ = {isa = PBXBuildFile; fileRef = 2A74A2862832600900874401 /* ClickMeEventRegister.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		2A74A26A28323BD200874401 /* Softgames TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Softgames TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A74A26E28323BD200874401 /* Softgames_TestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Softgames_TestUITests.swift; sourceTree = "<group>"; };
 		2A74A27028323BD200874401 /* Softgames_TestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Softgames_TestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2A74A27E283240EE00874401 /* softgame_doc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = softgame_doc.html; sourceTree = "<group>"; };
+		2A74A2802832523300874401 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		2A74A284283254E100874401 /* UserFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormViewModel.swift; sourceTree = "<group>"; };
+		2A74A2862832600900874401 /* ClickMeEventRegister.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ClickMeEventRegister.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +107,11 @@
 		2A74A24C28323BD200874401 /* Softgames Test */ = {
 			isa = PBXGroup;
 			children = (
+				2A74A27D28323FF700874401 /* Document */,
 				2A74A24D28323BD200874401 /* AppDelegate.swift */,
 				2A74A24F28323BD200874401 /* SceneDelegate.swift */,
-				2A74A25128323BD200874401 /* ViewController.swift */,
+				2A74A282283254BF00874401 /* Controller */,
+				2A74A2802832523300874401 /* UIViewController+Extension.swift */,
 				2A74A25328323BD200874401 /* Main.storyboard */,
 				2A74A25628323BD200874401 /* Assets.xcassets */,
 				2A74A25828323BD200874401 /* LaunchScreen.storyboard */,
@@ -125,6 +135,32 @@
 				2A74A27028323BD200874401 /* Softgames_TestUITestsLaunchTests.swift */,
 			);
 			path = "Softgames TestUITests";
+			sourceTree = "<group>";
+		};
+		2A74A27D28323FF700874401 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				2A74A2862832600900874401 /* ClickMeEventRegister.js */,
+				2A74A27E283240EE00874401 /* softgame_doc.html */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		2A74A282283254BF00874401 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A74A283283254CD00874401 /* ViewModel */,
+				2A74A25128323BD200874401 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2A74A283283254CD00874401 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2A74A284283254E100874401 /* UserFormViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +267,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A74A2872832600900874401 /* ClickMeEventRegister.js in Resources */,
 				2A74A25A28323BD200874401 /* LaunchScreen.storyboard in Resources */,
 				2A74A25728323BD200874401 /* Assets.xcassets in Resources */,
 				2A74A25528323BD200874401 /* Main.storyboard in Resources */,
+				2A74A27F283240EE00874401 /* softgame_doc.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A74A2812832523300874401 /* UIViewController+Extension.swift in Sources */,
 				2A74A25228323BD200874401 /* ViewController.swift in Sources */,
 				2A74A24E28323BD200874401 /* AppDelegate.swift in Sources */,
 				2A74A25028323BD200874401 /* SceneDelegate.swift in Sources */,
+				2A74A285283254E100874401 /* UserFormViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
